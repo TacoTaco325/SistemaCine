@@ -1,0 +1,9 @@
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Modelo\bin\Debug\Modelo.dll
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Modelo\bin\Debug\Modelo.pdb
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Modelo\bin\Debug\Entidad.dll
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Modelo\bin\Debug\Entidad.pdb
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Modelo\obj\Debug\Modelo.csproj.CopyComplete
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Modelo\obj\Debug\Modelo.dll
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Modelo\obj\Debug\Modelo.pdb

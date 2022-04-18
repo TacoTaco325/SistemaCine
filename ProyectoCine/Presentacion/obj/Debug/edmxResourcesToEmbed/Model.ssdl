@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBCINEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cargo">
+    <Key>
+      <PropertyRef Name="idcargo" />
+    </Key>
+    <Property Name="idcargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cargo" Type="varchar" MaxLength="250" />
+    <Property Name="sueldo" Type="float" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="idcat" />
+    </Key>
+    <Property Name="idcat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cat" Type="varchar" MaxLength="250" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Clasificacion">
+    <Key>
+      <PropertyRef Name="idclasi" />
+    </Key>
+    <Property Name="idclasi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clasificacion" Type="varchar" MaxLength="250" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" />
+    <Property Name="apellido" Type="varchar" MaxLength="250" />
+    <Property Name="dni" Type="int" />
+    <Property Name="edad" Type="int" />
+    <Property Name="idcargo" Type="int" />
+    <Property Name="usu" Type="varchar" MaxLength="250" />
+    <Property Name="cont" Type="varchar" MaxLength="250" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Funcion">
+    <Key>
+      <PropertyRef Name="idfuncion" />
+    </Key>
+    <Property Name="idfuncion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hora" Type="varchar" MaxLength="250" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="idsala" Type="int" />
+    <Property Name="estado" Type="bit" />
+    <Property Name="idpelicula" Type="int" />
+  </EntityType>
+  <EntityType Name="Genero">
+    <Key>
+      <PropertyRef Name="idgen" />
+    </Key>
+    <Property Name="idgen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="genero" Type="varchar" MaxLength="250" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Pelicula">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" />
+    <Property Name="idgen" Type="int" />
+    <Property Name="idclasi" Type="int" />
+    <Property Name="estado" Type="bit" />
+    <Property Name="img" Type="image" />
+    <Property Name="estreno" Type="date" />
+    <Property Name="sinopsis" Type="text" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="idpro" />
+    </Key>
+    <Property Name="idpro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" />
+    <Property Name="stock" Type="int" />
+    <Property Name="idcat" Type="int" />
+    <Property Name="precio" Type="float" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Reservacion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codbutaca" Type="varchar" MaxLength="10" />
+    <Property Name="idfuncion" Type="int" />
+  </EntityType>
+  <EntityType Name="Sala">
+    <Key>
+      <PropertyRef Name="idsala" />
+    </Key>
+    <Property Name="idsala" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sala" Type="varchar" MaxLength="250" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <Association Name="FK__Empleado__idcarg__2E1BDC42">
+    <End Role="Cargo" Type="Self.Cargo" Multiplicity="0..1" />
+    <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="idcargo" />
+      </Principal>
+      <Dependent Role="Empleado">
+        <PropertyRef Name="idcargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Funcion__idpelic__571DF1D5">
+    <End Role="Pelicula" Type="Self.Pelicula" Multiplicity="0..1" />
+    <End Role="Funcion" Type="Self.Funcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pelicula">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Funcion">
+        <PropertyRef Name="idpelicula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Funcion__idsala__5629CD9C">
+    <End Role="Sala" Type="Self.Sala" Multiplicity="0..1" />
+    <End Role="Funcion" Type="Self.Funcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sala">
+        <PropertyRef Name="idsala" />
+      </Principal>
+      <Dependent Role="Funcion">
+        <PropertyRef Name="idsala" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pelicula__idclas__4D94879B">
+    <End Role="Clasificacion" Type="Self.Clasificacion" Multiplicity="0..1" />
+    <End Role="Pelicula" Type="Self.Pelicula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clasificacion">
+        <PropertyRef Name="idclasi" />
+      </Principal>
+      <Dependent Role="Pelicula">
+        <PropertyRef Name="idclasi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pelicula__idgen__4AB81AF0">
+    <End Role="Genero" Type="Self.Genero" Multiplicity="0..1" />
+    <End Role="Pelicula" Type="Self.Pelicula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genero">
+        <PropertyRef Name="idgen" />
+      </Principal>
+      <Dependent Role="Pelicula">
+        <PropertyRef Name="idgen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto__idcat__38996AB5">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="idcat" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="idcat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reservaci__idfun__534D60F1">
+    <End Role="Funcion" Type="Self.Funcion" Multiplicity="0..1" />
+    <End Role="Reservacion" Type="Self.Reservacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcion">
+        <PropertyRef Name="idfuncion" />
+      </Principal>
+      <Dependent Role="Reservacion">
+        <PropertyRef Name="idfuncion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBCINEModelStoreContainer">
+    <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clasificacion" EntityType="Self.Clasificacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Funcion" EntityType="Self.Funcion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genero" EntityType="Self.Genero" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pelicula" EntityType="Self.Pelicula" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservacion" EntityType="Self.Reservacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sala" EntityType="Self.Sala" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Empleado__idcarg__2E1BDC42" Association="Self.FK__Empleado__idcarg__2E1BDC42">
+      <End Role="Cargo" EntitySet="Cargo" />
+      <End Role="Empleado" EntitySet="Empleado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Funcion__idpelic__571DF1D5" Association="Self.FK__Funcion__idpelic__571DF1D5">
+      <End Role="Pelicula" EntitySet="Pelicula" />
+      <End Role="Funcion" EntitySet="Funcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Funcion__idsala__5629CD9C" Association="Self.FK__Funcion__idsala__5629CD9C">
+      <End Role="Sala" EntitySet="Sala" />
+      <End Role="Funcion" EntitySet="Funcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pelicula__idclas__4D94879B" Association="Self.FK__Pelicula__idclas__4D94879B">
+      <End Role="Clasificacion" EntitySet="Clasificacion" />
+      <End Role="Pelicula" EntitySet="Pelicula" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pelicula__idgen__4AB81AF0" Association="Self.FK__Pelicula__idgen__4AB81AF0">
+      <End Role="Genero" EntitySet="Genero" />
+      <End Role="Pelicula" EntitySet="Pelicula" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto__idcat__38996AB5" Association="Self.FK__Producto__idcat__38996AB5">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reservaci__idfun__534D60F1" Association="Self.FK__Reservaci__idfun__534D60F1">
+      <End Role="Funcion" EntitySet="Funcion" />
+      <End Role="Reservacion" EntitySet="Reservacion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

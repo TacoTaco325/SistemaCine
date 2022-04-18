@@ -1,0 +1,6 @@
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Entidad\bin\Debug\Entidad.dll
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Entidad\bin\Debug\Entidad.pdb
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Entidad\obj\Debug\Entidad.csprojAssemblyReference.cache
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Entidad\obj\Debug\Entidad.dll
+D:\Documentos\5to Ciclo\Proyecto Final\ProyectoCine\Entidad\obj\Debug\Entidad.pdb
